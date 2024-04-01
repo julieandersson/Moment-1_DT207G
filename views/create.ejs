@@ -9,15 +9,15 @@
 <body>
     <header>
         <ul>
-            <li><a href="/">Startsida</a></li>
-            <li><a href="/create">Lägg till kurs</a></li>
-            <li><a href="/aboutsite">Om denna webbplats</a></li>
+            <li><a href="/">STARTSIDA</a></li>
+            <li><a href="/create">LÄGG TILL KURS</a></li>
+            <li><a href="/aboutsite">OM DENNA WEBBPLATS</a></li>
         </ul>
     </header>
 
+    <main>
     <h1>Lägg till ny kurs</h1>
-
-    <form method="post">
+    <form method="post" class="postform">
         <!--Felmeddelande om fält saknas-->
         <% if(locals.errors.length > 0) { %>
             <ul>
@@ -28,6 +28,7 @@
                 <% }); %>
             </ul>
         <% } %>
+        <br>
 
         <label for="coursecode">Kurskod:</label>
         <input type="text" id="coursecode" name="coursecode" value="<%= coursecode %>">
@@ -47,8 +48,12 @@
         </select>
 
         <input type="submit" value="Lägg till kurs">
-
-        
     </form>
+</main><br>
+
+<footer>
+    <p>Moment 1 - DT207G<br>
+    Av Julie Andersson</p>
+</footer>
 </body>
 </html>

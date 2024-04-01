@@ -9,14 +9,14 @@
 <body>
     <header>
         <ul>
-            <li><a href="/">Startsida</a></li>
-            <li><a href="/create">Lägg till kurs</a></li>
-            <li><a href="/aboutsite">Om denna webbplats</a></li>
+            <li><a href="/">STARTSIDA</a></li>
+            <li><a href="/create">LÄGG TILL KURS</a></li>
+            <li><a href="/aboutsite">OM DENNA WEBBPLATS</a></li>
         </ul>
     </header>
     <main>
     <h1>Befintliga kurser</h1>
-    <p>Här finner du dina befintliga kurser...</p>
+    <h2>Här finner du dina befintliga kurser...</h2>
 
     <% if(locals.rows.length > 0) { %>
         <% locals.rows.forEach((row) => { %>
@@ -42,12 +42,12 @@
                 </p>
 
                 <!--Knapp för att radera specifik kurs-->
-                <p>
-                    <a href="/delete/<%= row.id %>">Radera kommentar</a>
+                <p class="delete">
+                    <a href="/delete/<%= row.id %>">Radera tillagd kurs</a>
                 </p>
 
                 <!--Knapp för att redigera/ändra specifik kurs-->
-                <p>
+                <p class="edit">
                     <a href="/editcourse/<%= row.id %>">Ändra kursinformation</a>
                 </p>
 
@@ -57,6 +57,11 @@
     
     <% } %>
 
-    </main>
+    </main><br>
+
+    <footer>
+        <p>Moment 1 - DT207G<br>
+        Av Julie Andersson</p>
+    </footer>
 </body>
 </html>
