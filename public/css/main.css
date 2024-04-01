@@ -125,8 +125,8 @@ form {
 
 form label {
     display: block;
-    margin-bottom: 8px;
     font-weight: bold;
+    margin-bottom: 8px;
     color: #333333;
 }
 
@@ -172,4 +172,89 @@ form select:focus {
     font-style: italic;
     list-style: none;
     color: red;
+}
+
+/* MEDIA QUERIES */
+/* Tablet */
+@media only screen and (min-width: 600px) and (max-width: 800px) {
+    h1 {
+        font-size: 22px;
+    }
+    
+    h2 {
+        font-size: 18px;
+    }
+
+    footer p {
+        font-size: 14px;
+    }
+
+    main {
+        width: 90%;
+    }
+
+    article p {
+        max-width: 60ch;
+    }
+
+    form input[type="submit"] {
+        display: block;
+        margin: 0 auto;
+    }
+
+}
+
+/* Mobile */
+@media only screen and (max-width: 599px) {
+    header {
+        height: 70px;
+    }
+    header ul li {
+        display: grid;
+        text-align: center;
+        line-height: 1.8em;
+        font-size: 15px;
+    }
+
+    h1 {
+        font-size: 18px;
+    }
+
+    h2 {
+        font-size: 15px;
+    }
+
+    footer p {
+        font-size: 13px;
+    }
+
+    article p {
+        font-size: 14px;
+    }
+
+    article li {
+        font-size: 14px;
+    }
+
+    article {
+        max-width: 350px;
+    }
+
+    form {
+        max-width: 350px;
+    }
+
+    form input[type="submit"] {
+        font-size: 13px;
+        display: block;
+        margin: 0 auto;
+    }
+
+    form label {
+        text-align: center;
+    }
+
+    .postform ul {
+        font-size: 14px;
+    }
 }
