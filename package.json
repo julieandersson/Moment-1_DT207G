@@ -4,6 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
+    "install": "node install.js",
     "start": "nodemon server.js"
   },
   "keywords": [],

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Moment 1 - DT207G</title>
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="/css/main.css">
 </head>
 <body>
     <header>
@@ -17,6 +17,41 @@
     <main>
     <h1>Befintliga kurser</h1>
     <p>Här finner du dina befintliga kurser...</p>
+
+    <% if(locals.rows.length > 0) { %>
+        <% locals.rows.forEach((row) => { %>
+            <article>
+                <p>Kurskod:
+                <%= row.coursecode %>
+                </p>
+
+                <p>Kursnamn:
+                    <%= row.coursename %>
+                </p>
+
+                <p>Länk till kursplan:
+                    <%= row.syllabus %>
+                </p>
+
+                <p>Progression:
+                    <%= row.progression %>
+                </p>
+                <p class="posted">
+                    Postad:
+                    <%= row.created %>
+                </p>
+
+                <!--Knapp för att radera specifik kurs-->
+                <p>
+                    <a href="/delete/<%= row.id %>">Radera kommentar</a>
+                </p>
+
+            </article>
+
+      <% }); %>
+    
+    <% } %>
+
     </main>
 </body>
 </html>
