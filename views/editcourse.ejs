@@ -21,7 +21,7 @@
 
     <form method="post">
         <!--Felmeddelande om fält saknas-->
-        <% if(error) { %>
+        <% if(error.length > 0) { %>
             <ul>
                 <% error.forEach((error) => { %>
                     <li>
@@ -41,7 +41,7 @@
         <input type="text" id="syllabus" name="syllabus" value="<%= row.syllabus %>">
 
         <label for="progression">Progression:</label>
-        <select name="progression" id="progression" value="<%= progression %>">
+        <select name="progression" id="progression">
             <option value="">Välj progression</option>
             <option value="A" <% if (row && row.progression === 'A') { %> selected <% } %>>A</option>
             <option value="B" <% if (row && row.progression === 'B') { %> selected <% } %>>B</option>
