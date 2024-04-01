@@ -1,3 +1,4 @@
+
 const sqlite3 = require("sqlite3").verbose();
 const db = new sqlite3.Database("./db/cv.db");
 
@@ -21,12 +22,48 @@ app.get("/", (req, res) => {
 
 // Hämtar sida för att lägga till ny kurs
 app.get("/create", (req, res) => {
-
-    res.render("create");
+    res.render("create", {
+        errors: [],
+        coursecode: "",
+        coursename: "",
+        syllabus: "",
+        progression: ""
+    });
 });
 
 app.post("/create", (req, res) => {
-    res.render("create");
+    // Läs in datan från formulär
+    let coursecode = req.body.coursecode;
+    let coursename = req.body.coursename;
+    let syllabus = req.body.syllabus;
+    let progression = req.body.progression;
+
+    let errors = [];
+
+    // Kontroll
+    if (coursecode === "") {
+        errors.push("Ange en korrekt kurskod");
+    }
+
+    if (coursename === "") {
+        errors.push("Ange ett korrekt kursnamn");
+    }
+
+    if (syllabus === "") {
+        errors.push("Ange en länk till kursplanen");
+    }
+
+    if (progression === "") {
+        errors.push("Ange progression");
+    }
+    
+    res.render("create", {
+        errors: errors,
+        coursecode: coursecode,
+        coursename: coursename,
+        syllabus: syllabus,
+        progression: progression
+    });
 })
 
 // Hämtar om-sidan
