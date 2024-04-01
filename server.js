@@ -31,6 +31,7 @@ app.get("/create", (req, res) => {
     });
 });
 
+// Lägg till ny kurs på sidan
 app.post("/create", (req, res) => {
     // Läs in datan från formulär
     let coursecode = req.body.coursecode;
@@ -40,7 +41,7 @@ app.post("/create", (req, res) => {
 
     let errors = [];
 
-    // Kontroll
+    // Kontroll, ange felmeddelande om något fält inte är ifyllt
     if (coursecode === "") {
         errors.push("Ange en korrekt kurskod");
     }
@@ -55,8 +56,7 @@ app.post("/create", (req, res) => {
 
     if (progression === "") {
         errors.push("Ange progression");
-    }
-    
+
     res.render("create", {
         errors: errors,
         coursecode: coursecode,
@@ -64,7 +64,15 @@ app.post("/create", (req, res) => {
         syllabus: syllabus,
         progression: progression
     });
-})
+
+    // Vid korrekt inmatning, lagra datan, nollställ och redirect till startsidan
+    } else {
+        const stmt = db.prepare("INSERT INTO courses(coursecode, coursename, syllabus, progression)VALUES(?, ?, ?, ?);"); // Prepare-statement
+        stmt.run(coursecode, coursename, syllabus, progression);
+        stmt.finalize();
+        res.redirect("/");
+    }
+});
 
 // Hämtar om-sidan
 app.get("/aboutsite", (req, res) => {
