@@ -70,7 +70,9 @@ app.post("/create", (req, res) => {
 
     if (progression === "") {
         errors.push("Ange progression");
+    }
 
+    if (errors.length > 0) {
     res.render("create", {
         errors: errors,
         coursecode: coursecode,
@@ -82,9 +84,14 @@ app.post("/create", (req, res) => {
     // Vid korrekt inmatning, lagra datan, nollställ och redirect till startsidan
     } else {
         const stmt = db.prepare("INSERT INTO courses(coursecode, coursename, syllabus, progression)VALUES(?, ?, ?, ?);"); // Prepare-statement
-        stmt.run(coursecode, coursename, syllabus, progression);
-        stmt.finalize();
-        res.redirect("/");
+        stmt.run(coursecode, coursename, syllabus, progression, (err) => {
+            if (err) {
+                console.error(err.message);
+            } else {
+                stmt.finalize();
+                res.redirect("/");
+            }
+        });
     }
 });
 

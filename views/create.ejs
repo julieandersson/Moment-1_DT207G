@@ -21,7 +21,7 @@
         <!--Felmeddelande om fält saknas-->
         <% if(locals.errors.length > 0) { %>
             <ul>
-                <% errors.forEach((error) => { %>
+                <% locals.errors.forEach((error) => { %>
                     <li>
                         <%= error %>
                     </li>
