@@ -4,12 +4,13 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start" : "nodemon server.js"
+    "start": "nodemon server.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Julie Andersson",
   "license": "ISC",
   "dependencies": {
+    "ejs": "^3.1.9",
     "express": "^4.19.2",
     "sqlite3": "^5.1.7"
   },
