@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moment 1 - DT207G</title>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+    <header>
+        <ul>
+            <li><a href="/">Startsida</a></li>
+            <li><a href="/create">Lägg till kurs</a></li>
+            <li><a href="/aboutsite">Om denna webbplats</a></li>
+        </ul>
+    </header>
+
+    <h1>Lägg till ny kurs</h1>
+    <form method="post">
+        <label for="coursecode">Kurskod:</label>
+        <input type="text" id="coursecode" name="coursecode">
+
+        <label for="coursename">Kursnamn:</label>
+        <input type="text" id="coursename" name="coursename">
+
+        <label for="syllabus">Länk till kursplan:</label>
+        <input type="text" id="syllabus" name="syllabus">
+
+        <label for="progression">Progression:</label>
+        <select type="progression" id="progression">
+            <option value="">Välj progression</option>
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+        </select>
+
+        <input type="submit" value="Lägg till kurs">
+    </form>
+</body>
+</html>
